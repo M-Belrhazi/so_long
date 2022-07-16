@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 18:23:42 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/16 23:41:27 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	get_coll(t_data *data)
 		x = data->pos_x + 14;
 		while (x < (size_t)data->pos_x + 18)
 		{
-			if ((data->map)[y / 32][x / 32] == 'C')
+			if ((data->map)[y / 32][x / 32] == 'C'
+				|| (data->map)[y / 32][x / 32] == 'B')
 			{
 				(data->map)[y / 32][x / 32] = '0';
 				data->colls = data->colls - 1;

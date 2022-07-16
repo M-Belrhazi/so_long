@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 19:19:17 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:23:33 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@
 # endif
 
 # ifndef SD1
-#  define SD1 10
+#  define SD1 20
 # endif
 
 # ifndef SD2
-#  define SD2 5
+#  define SD2 3
 # endif
 
 # ifndef SD3
-#  define SD3 3
+#  define SD3 1
 # endif
 
 typedef struct s_tile
@@ -52,10 +52,9 @@ typedef struct s_tile
 typedef struct s_img {
 	void	*img;
 	t_tile	*tile;
-	t_tile	*player;
-	t_tile	*wall1;
-	t_tile	*wall2;
-	t_tile	*col;
+	t_tile	*player[4];
+	t_tile	*wall[2];
+	t_tile	*col[2];
 	t_tile	*exit;
 	int		width;
 	int		height;
@@ -99,7 +98,7 @@ int		render_map(t_data *data);
 void	render_tile(char c, size_t i, size_t j, t_data *data);
 void	render_tile_continue(char c, int x, int y, t_data *data);
 int		init_tiles(t_data *data);
-void	put_player_to_image(t_img *img, int x, int y, int i);
+void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
 int		ft_close(t_data *data);
 void	move_right(t_data *data);
 void	move_left(t_data *data);
@@ -113,5 +112,7 @@ void	end_game(t_data *data, size_t pos_x, size_t pos_y);
 int		no_move(t_data *data, size_t pos_x, size_t pos_y);
 void	get_coll(t_data *data);
 void	ft_init_data(t_data *data, char **map);
+int		init_player_tiles(t_data *data);
+int		init_col_tiles(t_data *data);
 
 #endif

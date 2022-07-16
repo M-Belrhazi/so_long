@@ -18,7 +18,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	make -s -C ./minilibx
 	make -s -C ./libftprintf
-	$(CC) -o $(NAME) $(OBJS) -Lminilibx -lmlx -lX11 -lXext -Llibftprintf -lftprintf
+	$(CC) -g3 -o $(NAME) $(OBJS) -Lminilibx -lmlx -lX11 -lXext -Llibftprintf -lftprintf
 
 re : fclean all
 

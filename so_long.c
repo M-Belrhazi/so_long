@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 18:30:53 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/16 23:41:02 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	get_nb_colls(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'C')
+			if (map[i][j] == 'C' || map[i][j] == 'B')
 				nb_colls++;
 			j++;
 		}
@@ -88,6 +88,6 @@ int	main(int argc, char **argv)
 	if (parse(argv[1], &map))
 		return (3);
 	if (!ft_mlx(map))
-		return (free_map(map), write(2, "mlx or img file error\n", 10), 4);
+		return (free_map(map), write(2, "mlx or img file error\n", 22), 4);
 	return (0);
 }

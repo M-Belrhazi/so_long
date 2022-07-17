@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 22:23:33 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:08:52 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_tile
 typedef struct s_img {
 	void	*img;
 	t_tile	*tile;
+	t_tile	*player_br[4];
 	t_tile	*player[4];
 	t_tile	*wall[2];
 	t_tile	*col[2];
@@ -70,6 +71,7 @@ typedef struct s_data {
 	int		pos_y;
 	int		colls;
 	int		nb_moves;
+	int		broom;
 	int		down[4];
 	void	*win;
 	char	**map;
@@ -114,5 +116,6 @@ void	get_coll(t_data *data);
 void	ft_init_data(t_data *data, char **map);
 int		init_player_tiles(t_data *data);
 int		init_col_tiles(t_data *data);
+void	render_player_br(t_data *data);
 
 #endif

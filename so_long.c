@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 23:41:02 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/17 20:55:40 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_init_data(t_data *data, char **map)
 	data->down[3] = 0;
 	data->colls = get_nb_colls(map);
 	data->nb_moves = 0;
+	data->broom = 0;
 }
 
 int	ft_mlx(char **map)

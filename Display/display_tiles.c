@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:54:48 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 23:40:17 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:08:29 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,32 @@ void	put_player_to_image(t_img *img, int x, int y, t_tile *player)
 	}
 }
 
+void	render_player_br(t_data *data)
+{
+	t_tile	*player;
+
+	if (data->down[0] == 1)
+		player = data->img->player_br[1];
+	else if (data->down[1] == 1)
+		player = data->img->player_br[2];
+	else if (data->down[2] == 1)
+		player = data->img->player_br[0];
+	else if (data->down[3] == 1)
+		player = data->img->player_br[3];
+	else
+		player = data->img->player_br[0];
+	put_player_to_image(data->img, data->pos_x, data->pos_y, player);
+}
+
 void	render_player(t_data *data)
 {
 	t_tile	*player;
 
+	if (data->broom == 1)
+	{
+		render_player_br(data);
+		return ;
+	}
 	if (data->down[0] == 1)
 		player = data->img->player[1];
 	else if (data->down[1] == 1)

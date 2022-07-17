@@ -6,13 +6,13 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:23:08 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/17 21:06:34 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:28:26 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_close(t_data *data)
+void	ft_destroy_image(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->img->img);
 	mlx_destroy_image(data->mlx, data->img->tile->tile);
@@ -29,6 +29,11 @@ int	ft_close(t_data *data)
 	mlx_destroy_image(data->mlx, data->img->col[1]->tile);
 	mlx_destroy_image(data->mlx, data->img->wall[0]->tile);
 	mlx_destroy_image(data->mlx, data->img->wall[1]->tile);
+}
+
+int	ft_close(t_data *data)
+{
+	ft_destroy_image(data);
 	free(data->img->tile);
 	free(data->img->player[0]);
 	free(data->img->player_br[0]);

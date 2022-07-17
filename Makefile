@@ -4,7 +4,7 @@ CC= cc
 
 SRCS= so_long.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
 		Mapping/mapping_utils.c Display/display.c Display/display_tiles.c \
-		ft_init.c ft_close.c moves.c handlers.c
+		ft_init.c ft_close.c moves.c handlers.c Display/display_player.c
 
 OBJS= $(SRCS:.c=.o)
 

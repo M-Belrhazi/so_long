@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:20:14 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/15 18:52:28 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:26:14 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 	- file doesn't have the .ber extension
 	- file is hidden
 	The file can have multiple extensions, or be located in a hidden repository.
-
-	DONT FORGET TO PUT ERROR BEFORE YOUR ERROR MESSAGES
 */
 
 #include "so_long.h"
@@ -62,7 +60,7 @@ int	parse(char *file, char ***map)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		write(2, "Invalid file\n", 13);
+		write(2, "Invalid file or path\n", 21);
 		return (1);
 	}
 	if (fill_one_line_map(fd, map))

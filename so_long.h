@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/17 21:08:52 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:19:19 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,11 @@ void	ft_init_data(t_data *data, char **map);
 int		init_player_tiles(t_data *data);
 int		init_col_tiles(t_data *data);
 void	render_player_br(t_data *data);
+void	ret_write(int return_nb);
+void	ret_4_write(void);
+void	ret_3_write(void);
+void	ret_2_write(void);
+void	ret_1_write(void);
+void	ret_0_write(void);
 
 #endif

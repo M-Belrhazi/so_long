@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/18 16:19:19 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:02:06 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,24 @@
 # include "sys/stat.h"
 # include "fcntl.h"
 
+/*
+	SD is for slow down, the higher SD is, the slower the player goes
+*/
+
+/*
+	PIX is for the number of pixels per move of the player
+*/
+
 # ifndef PIX
-#  define PIX 2
+#  define PIX 1
 # endif
 
 # ifndef SD1
-#  define SD1 20
+#  define SD1 12
 # endif
 
 # ifndef SD2
-#  define SD2 3
+#  define SD2 2
 # endif
 
 # ifndef SD3
@@ -86,7 +94,6 @@ int		fill_map(char ***map, char *ol_map);
 void	free_map(char **map);
 int		nl_ol_map(char *str);
 size_t	ft_strlen_no_nl(char *str);
-char	*erase_nl(char *str);
 int		walls_map(char **map);
 int		invalid_char_map(char **map);
 int		exit_map(char **map);

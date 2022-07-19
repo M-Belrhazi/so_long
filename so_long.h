@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/18 17:02:06 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:00:02 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@
 # include "sys/stat.h"
 # include "fcntl.h"
 
+/*############################################################################*/
+/*                                DEFINITIONS                                 */
+/*############################################################################*/
+
 /*
 	SD is for slow down, the higher SD is, the slower the player goes
+	Definitions of multiple SDs for different map sizes
 */
 
 /*
@@ -31,11 +36,11 @@
 */
 
 # ifndef PIX
-#  define PIX 1
+#  define PIX 2
 # endif
 
 # ifndef SD1
-#  define SD1 12
+#  define SD1 15
 # endif
 
 # ifndef SD2
@@ -86,49 +91,93 @@ typedef struct s_data {
 	t_img	*img;
 }	t_data;
 
-int		find_error(char *str);
-int		parse(char *file, char ***map);
-int		fill_one_line_map(int fd, char ***map);
-char	*find_first_line(char *line, int fd);
+/*############################################################################*/
+/*                             MAPPING FUNCTIONS                              */
+/*############################################################################*/
+
 int		fill_map(char ***map, char *ol_map);
-void	free_map(char **map);
-int		nl_ol_map(char *str);
+char	*find_first_line(char *line, int fd);
+int		fill_one_line_map(int fd, char ***map);
+void	ft_free(char *line, char *ol_map);
 size_t	ft_strlen_no_nl(char *str);
+int		nl_ol_map(char *str);
+void	free_map(char **map);
+void	ret_write(int return_nb);
 int		walls_map(char **map);
 int		invalid_char_map(char **map);
 int		exit_map(char **map);
 int		col_map(char **map);
 int		player_map(char **map);
-void	print_map(char **map);
-int		ft_width_win(char **map);
-int		ft_height_win(char **map);
-void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y);
-int		render_map(t_data *data);
-void	render_tile(char c, size_t i, size_t j, t_data *data);
-void	render_tile_continue(char c, int x, int y, t_data *data);
-int		init_tiles(t_data *data);
-void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
-int		ft_close(t_data *data);
-void	move_right(t_data *data);
-void	move_left(t_data *data);
-void	move_down(t_data *data);
-void	move_up(t_data *data);
-void	handle_moves(t_data *data);
-void	render_player(t_data *data);
-int		handle_keypress(int key, t_data *data);
-int		handle_keyrelease(int key, t_data *data);
-void	end_game(t_data *data, size_t pos_x, size_t pos_y);
-int		no_move(t_data *data, size_t pos_x, size_t pos_y);
-void	get_coll(t_data *data);
-void	ft_init_data(t_data *data, char **map);
-int		init_player_tiles(t_data *data);
-int		init_col_tiles(t_data *data);
-void	render_player_br(t_data *data);
-void	ret_write(int return_nb);
 void	ret_4_write(void);
 void	ret_3_write(void);
 void	ret_2_write(void);
 void	ret_1_write(void);
 void	ret_0_write(void);
+
+/*############################################################################*/
+/*                             DISPLAY FUNCTIONS                              */
+/*############################################################################*/
+
+int		render_map(t_data *data);
+void	handle_moves(t_data *data);
+int		ft_height_win(char **map);
+int		ft_width_win(char **map);
+void	render_tile(char c, size_t i, size_t j, t_data *data);
+void	render_tile_continue(char c, int x, int y, t_data *data);
+void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y);
+void	render_player(t_data *data);
+void	render_player_br(t_data *data);
+void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
+
+/*############################################################################*/
+/*                             DESTROY FUNCTIONS                              */
+/*############################################################################*/
+
+int		ft_close(t_data *data);
+void	ft_destroy_image(t_data *data);
+void	ft_destroy_player(t_data *data);
+
+/*############################################################################*/
+/*                            TILE INIT FUNCTIONS                             */
+/*############################################################################*/
+
+int		init_tiles(t_data *data);
+int		init_col_tiles(t_data *data);
+int		init_player_tiles(t_data *data);
+int		init_player_br_tiles(t_data *data);
+
+/*############################################################################*/
+/*                             HANDLER FUNCTIONS                              */
+/*############################################################################*/
+
+int		handle_keyrelease(int key, t_data *data);
+int		handle_keypress(int key, t_data *data);
+
+/*############################################################################*/
+/*                              MOVES FUNCTIONS                               */
+/*############################################################################*/
+
+void	move_right(t_data *data);
+void	move_left(t_data *data);
+void	move_down(t_data *data);
+void	move_up(t_data *data);
+void	end_game(t_data *data, size_t pos_x, size_t pos_y);
+int		no_move(t_data *data, size_t pos_x, size_t pos_y);
+void	get_coll(t_data *data);
+
+/*############################################################################*/
+/*                             PARSING FUNCTIONS                              */
+/*############################################################################*/
+
+int		parse(char *file, char ***map);
+int		find_error(char *str);
+
+/*############################################################################*/
+/*                             INITIAL FUNCTIONS                              */
+/*############################################################################*/
+
+int		ft_mlx(char **map);
+void	ft_init_data(t_data *data, char **map);
+int		get_nb_colls(char **map);
 
 #endif

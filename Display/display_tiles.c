@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:54:48 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/17 21:32:33 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:29:34 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y)
 			&tile->line_size, &tile->endian);
 	while (*(unsigned int *)(data_tile + x_tile))
 	{
-		addon = (x * 4) + i + y * (img->line_size);
+		addon = (x * (tile->bpp / 8)) + i + y * (img->line_size);
 		*(unsigned int *)(data_img + addon) = *(unsigned int *)
 			(data_tile + x_tile);
-		x_tile += 4;
-		i += 4;
+		x_tile += (tile->bpp / 8);
+		i += (tile->bpp / 8);
 		if (i >= tile->line_size)
 		{
 			i = 0;

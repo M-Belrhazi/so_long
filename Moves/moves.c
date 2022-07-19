@@ -6,11 +6,11 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:24:36 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 18:34:04 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:52:03 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	move_up(t_data *data)
 {

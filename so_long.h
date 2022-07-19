@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/19 15:00:02 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:19:31 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # endif
 
 # ifndef SD1
-#  define SD1 15
+#  define SD1 14
 # endif
 
 # ifndef SD2

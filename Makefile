@@ -17,19 +17,19 @@ NAME= so_long
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	make -s -C ./minilibx
-	make -s -C ./libftprintf
-	$(CC) -g3 -o $(NAME) $(OBJS) -Lminilibx -lmlx -lX11 -lXext -Llibftprintf -lftprintf
+	make -s -C libs/minilibx
+	make -s -C libs/libftprintf
+	$(CC) -g3 -o $(NAME) $(OBJS) -L libs/minilibx -lmlx -lX11 -lXext -L libs/libftprintf -lftprintf
 
 re : fclean all
 
 clean :
 	rm -f $(OBJS)
-	make clean -C libftprintf
-	make clean -C minilibx
+	make clean -C libs/libftprintf
+	make clean -C libs/minilibx
 
 fclean : clean
 	rm -f $(NAME)
-	make fclean -C libftprintf
+	make fclean -C libs/libftprintf
 
 .PHONY : all clean fclean re

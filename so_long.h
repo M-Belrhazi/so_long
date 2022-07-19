@@ -6,15 +6,15 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/19 15:19:31 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:23:23 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "minilibx/mlx.h"
-# include "libftprintf/libftprintf.h"
+# include "libs/minilibx/mlx.h"
+# include "libs/libftprintf/libftprintf.h"
 # include "stdio.h"
 # include "unistd.h"
 # include "string.h"

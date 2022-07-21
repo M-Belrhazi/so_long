@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:24:36 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/21 23:52:30 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 00:10:21 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	move_up(t_data *data)
 {
-	end_game(data, data->pos_x, data->pos_y - PIX);
+	win_game(data, data->pos_x, data->pos_y - PIX);
+	lose_game(data, data->pos_x, data->pos_y - PIX);
 	if (data->pos_y - PIX >= 0
 		&& !no_move(data, data->pos_x, data->pos_y - PIX))
 	{
@@ -26,7 +27,8 @@ void	move_up(t_data *data)
 
 void	move_down(t_data *data)
 {
-	end_game(data, data->pos_x, data->pos_y + PIX);
+	win_game(data, data->pos_x, data->pos_y + PIX);
+	lose_game(data, data->pos_x, data->pos_y + PIX);
 	if (data->pos_y + 31 + PIX < data->img->height
 		&& !no_move(data, data->pos_x, data->pos_y + PIX))
 	{
@@ -38,7 +40,8 @@ void	move_down(t_data *data)
 
 void	move_right(t_data *data)
 {
-	end_game(data, data->pos_x + PIX, data->pos_y);
+	win_game(data, data->pos_x + PIX, data->pos_y);
+	lose_game(data, data->pos_x + PIX, data->pos_y);
 	if (data->pos_x + 31 + PIX < data->img->width
 		&& !no_move(data, data->pos_x + PIX, data->pos_y))
 	{
@@ -50,7 +53,8 @@ void	move_right(t_data *data)
 
 void	move_left(t_data *data)
 {
-	end_game(data, data->pos_x - PIX, data->pos_y);
+	win_game(data, data->pos_x - PIX, data->pos_y);
+	lose_game(data, data->pos_x - PIX, data->pos_y);
 	if (data->pos_x - PIX >= 0
 		&& !no_move(data, data->pos_x - PIX, data->pos_y))
 	{

@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/19 14:52:07 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 00:13:16 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,34 @@ int	no_move(t_data *data, size_t pos_x, size_t pos_y)
 	return (0);
 }
 
-void	end_game(t_data *data, size_t pos_x, size_t pos_y)
+void	lose_game(t_data *data, size_t pos_x, size_t pos_y)
+{
+	size_t	x;
+	size_t	y;
+
+	y = pos_y;
+	x = pos_x;
+	while (y < (size_t)pos_y + 32)
+	{
+		x = pos_x;
+		while (x < (size_t)pos_x + 32)
+		{
+			if ((x >= (size_t)data->pos_enemy_x && x <= (size_t)data->pos_enemy_x + 31)
+				&& (y <= (size_t)data->pos_enemy_y && y <= (size_t)data->pos_enemy_y + 31))
+			{
+				ft_printf("nb of moves = %i\n", ++data->nb_moves);
+				ft_printf("You lost !\n");
+				ft_close(data);
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+	return ;
+}
+
+void	win_game(t_data *data, size_t pos_x, size_t pos_y)
 {
 	size_t	x;
 	size_t	y;
@@ -79,6 +106,7 @@ void	end_game(t_data *data, size_t pos_x, size_t pos_y)
 			if ((data->map)[y / 32][x / 32] == 'E')
 			{
 				ft_printf("nb of moves = %i\n", ++data->nb_moves);
+				ft_printf("You won !\n");
 				ft_close(data);
 				return ;
 			}

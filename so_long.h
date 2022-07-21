@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/21 23:43:20 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 00:10:31 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,8 @@ void	move_right(t_data *data);
 void	move_left(t_data *data);
 void	move_down(t_data *data);
 void	move_up(t_data *data);
-void	end_game(t_data *data, size_t pos_x, size_t pos_y);
+void	win_game(t_data *data, size_t pos_x, size_t pos_y);
+void	lose_game(t_data *data, size_t pos_x, size_t pos_y);
 int		no_move(t_data *data, size_t pos_x, size_t pos_y);
 void	get_coll(t_data *data);
 

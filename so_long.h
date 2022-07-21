@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/19 16:23:23 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/21 23:43:20 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_tile
 	int		bpp;
 	int		line_size;
 	int		endian;
+	int		x_tile;
 	char	*data;
 }	t_tile;
 
@@ -67,6 +68,8 @@ typedef struct s_img {
 	t_tile	*tile;
 	t_tile	*player_br[4];
 	t_tile	*player[4];
+	t_tile	*enemy;
+	t_tile	*new_enemy;
 	t_tile	*wall[2];
 	t_tile	*col[2];
 	t_tile	*exit;
@@ -80,8 +83,11 @@ typedef struct s_img {
 
 typedef struct s_data {
 	void	*mlx;
+	int		tiles[16];
 	int		pos_x;
 	int		pos_y;
+	int		pos_enemy_x;
+	int		pos_enemy_y;
 	int		colls;
 	int		nb_moves;
 	int		broom;
@@ -141,10 +147,18 @@ void	ft_destroy_player(t_data *data);
 /*                            TILE INIT FUNCTIONS                             */
 /*############################################################################*/
 
-int		init_tiles(t_data *data);
-int		init_col_tiles(t_data *data);
-int		init_player_tiles(t_data *data);
-int		init_player_br_tiles(t_data *data);
+int		ft_init_tiles(t_data *data);
+int		init_player_br(t_data *data);
+int		init_player(t_data *data);
+int		init_new_enemy(t_data *data);
+int		init_enemy(t_data *data);
+int		init_col(t_data *data);
+int		init_wall(t_data *data);
+int		init_exit(t_data *data);
+int		init_tile(t_data *data);
+void	ft_init_data_tab_tiles(t_data *data);
+int		init_player_continue(t_data *data, t_tile *player);
+int		init_player_br_continue(t_data *data, t_tile *player_br);
 
 /*############################################################################*/
 /*                             HANDLER FUNCTIONS                              */
@@ -178,6 +192,15 @@ int		find_error(char *str);
 
 int		ft_mlx(char **map);
 void	ft_init_data(t_data *data, char **map);
+void	ft_init_pos_enemy(t_data *data, char **map);
 int		get_nb_colls(char **map);
+
+/*############################################################################*/
+/*                              BONUS FUNCTIONS                               */
+/*############################################################################*/
+
+void	put_enemy_to_image(t_img *img, int x, int y, char *data_tile);
+char	*create_new_data(t_tile *enemy, t_tile *new_enemy);
+void	render_enemy(t_data *data);
 
 #endif

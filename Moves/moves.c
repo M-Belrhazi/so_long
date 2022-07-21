@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:24:36 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/19 14:52:03 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/21 23:52:30 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	move_up(t_data *data)
 	{
 		data->pos_y -= PIX;
 		get_coll(data);
-		ft_printf("nb of moves = %i\n", ++data->nb_moves);
+		ft_printf("nb of moves: %i\n", ++data->nb_moves);
 	}
 }
 
@@ -32,7 +32,7 @@ void	move_down(t_data *data)
 	{
 		data->pos_y += PIX;
 		get_coll(data);
-		ft_printf("nb of moves = %i\n", ++data->nb_moves);
+		ft_printf("nb of moves: %i\n", ++data->nb_moves);
 	}
 }
 
@@ -44,7 +44,7 @@ void	move_right(t_data *data)
 	{
 		data->pos_x += PIX;
 		get_coll(data);
-		ft_printf("nb of moves = %i\n", ++data->nb_moves);
+		ft_printf("nb of moves: %i\n", ++data->nb_moves);
 	}
 }
 
@@ -56,6 +56,6 @@ void	move_left(t_data *data)
 	{
 		data->pos_x -= PIX;
 		get_coll(data);
-		ft_printf("nb of moves = %i\n", ++data->nb_moves);
+		ft_printf("nb of moves: %i\n", ++data->nb_moves);
 	}
 }

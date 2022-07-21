@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 21:30:01 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/17 21:34:01 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:38:17 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_player_to_image(t_img *img, int x, int y, t_tile *player)
 			&img->endian);
 	data_tile = mlx_get_data_addr(player->tile, &player->bpp,
 			&player->line_size, &player->endian);
-	while (*(unsigned int *)(data_tile + x_tile))
+	while (x_tile < player->line_size * 32)
 	{
 		addon = (x * (player->bpp / 8)) + i + y * (img->line_size);
 		if (*(unsigned int *)(data_tile + x_tile) != 0x595959 &&

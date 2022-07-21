@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/17 20:55:40 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/21 22:44:50 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,33 @@ int	get_nb_colls(char **map)
 	return (nb_colls);
 }
 
+void	ft_init_pos_enemy(t_data *data, char **map)
+{
+	int	i;
+	int	j;
+	int	exit;
+
+	i = 0;
+	exit = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (exit == 1 && map[i][j] == '0')
+				break ;
+			if (map[i][j] == 'E')
+				exit = 1;
+			j++;
+		}
+		if (exit == 1 && map[i][j] == '0')
+			break ;
+		i++;
+	}
+	data->pos_enemy_x = j * 32;
+	data->pos_enemy_y = i * 32;
+}
+
 void	ft_init_data(t_data *data, char **map)
 {
 	data->down[0] = 0;
@@ -41,6 +68,7 @@ void	ft_init_data(t_data *data, char **map)
 	data->down[2] = 0;
 	data->down[3] = 0;
 	data->colls = get_nb_colls(map);
+	ft_init_pos_enemy(data, map);
 	data->nb_moves = 0;
 	data->broom = 0;
 }
@@ -57,13 +85,14 @@ int	ft_mlx(char **map)
 	ft_init_data(&data, map);
 	img.width = ft_width_win(map);
 	img.height = ft_height_win(map);
-	data.win = mlx_new_window(data.mlx, img.width, img.height, "HOHO");
+	data.win = mlx_new_window(data.mlx, img.width,
+			img.height, "Kitty and maleficat");
 	img.img = mlx_new_image(data.mlx, img.width, img.height);
 	data.img = &img;
 	if (!data.win || !data.img)
 		return (0);
-	if (!init_tiles(&data))
-		return (0);
+	if (!ft_init_tiles(&data))
+		return (ft_close(&data), 0);
 	mlx_loop_hook(data.mlx, &render_map, &data);
 	mlx_hook(data.win, 2, 1L << 0, &handle_keypress, &data);
 	mlx_hook(data.win, 3, 1L << 1, &handle_keyrelease, &data);

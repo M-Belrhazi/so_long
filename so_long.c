@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/21 22:44:50 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:56:43 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_init_data(t_data *data, char **map)
 	data->down[1] = 0;
 	data->down[2] = 0;
 	data->down[3] = 0;
+	data->map = map;
 	data->colls = get_nb_colls(map);
 	ft_init_pos_enemy(data, map);
 	data->nb_moves = 0;
@@ -81,18 +82,19 @@ int	ft_mlx(char **map)
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (0);
-	data.map = map;
 	ft_init_data(&data, map);
 	img.width = ft_width_win(map);
 	img.height = ft_height_win(map);
 	data.win = mlx_new_window(data.mlx, img.width,
 			img.height, "Kitty and maleficat");
+	if (!data.win)
+		return (ft_close_mlx(&data), 0);
 	img.img = mlx_new_image(data.mlx, img.width, img.height);
 	data.img = &img;
-	if (!data.win || !data.img)
-		return (0);
+	if (!data.img->img)
+		return (ft_close_window(&data), ft_close_mlx(&data), 0);
 	if (!ft_init_tiles(&data))
-		return (ft_close(&data), 0);
+		return (write(2, "mlx or img file error\n", 22), ft_close(&data), 0);
 	mlx_loop_hook(data.mlx, &render_map, &data);
 	mlx_hook(data.win, 2, 1L << 0, &handle_keypress, &data);
 	mlx_hook(data.win, 3, 1L << 1, &handle_keyrelease, &data);

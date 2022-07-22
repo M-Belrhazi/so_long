@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:23:08 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/21 23:05:59 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:56:35 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ void	ft_destroy_image(t_data *data)
 		mlx_destroy_image(data->mlx, data->img->wall[1]->tile);
 }
 
+void	ft_close_window(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+}
+
+void	ft_close_mlx(t_data *data)
+{
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+}
+
 int	ft_close(t_data *data)
 {
 	ft_destroy_image(data);
@@ -65,9 +76,9 @@ int	ft_close(t_data *data)
 	free(data->img->new_enemy);
 	free(data->img->col[0]);
 	free(data->img->wall[0]);
-	mlx_destroy_window(data->mlx, data->win);
 	free_map(data->map);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
+	ft_close_window(data);
+	ft_close_mlx(data);
 	exit(0);
+	return (0);
 }

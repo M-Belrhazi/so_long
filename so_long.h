@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 13:33:06 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:53:47 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,8 @@ void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
 /*############################################################################*/
 
 int		ft_close(t_data *data);
+void	ft_close_mlx(t_data *data);
+void	ft_close_window(t_data *data);
 void	ft_destroy_image(t_data *data);
 void	ft_destroy_player(t_data *data);
 

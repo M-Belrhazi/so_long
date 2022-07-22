@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 21:30:01 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/21 23:48:23 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:41:28 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,19 @@ char	*create_new_data(t_tile *enemy, t_tile *new_enemy)
 	return (new_d_tile);
 }
 
-void	render_enemy(t_data *data)
+void	exec_move_enemy(t_data *data, int nb)
+{
+	if (nb == 2)
+		move_enemy_up(data);
+	if (nb == 3)
+		move_enemy_left(data);
+	if (nb == 4)
+		move_enemy_down(data);
+	if (nb == 5)
+		move_enemy_right(data);
+}
+
+void	render_enemy_continue(t_data *data)
 {
 	static int	x_tile;
 	static int	time;
@@ -82,4 +94,23 @@ void	render_enemy(t_data *data)
 	enemy = img->enemy;
 	put_enemy_to_image(img, data->pos_enemy_x, data->pos_enemy_y,
 		create_new_data(enemy, img->new_enemy));
+}
+
+void	render_enemy(t_data *data)
+{
+	static int	rand_value;
+	static int	time;
+	int			sd_index;
+
+	sd_index = SD1;
+	if (data->img->width + data->img->width > 1000)
+		sd_index = SD2;
+	if (data->img->width + data->img->width > 5000)
+		sd_index = SD3;
+	if (time == 0 || time % 1500 == 0)
+		rand_value = rand() % 5 + 1;
+	if (time % sd_index == 0)
+		exec_move_enemy(data, rand_value);
+	render_enemy_continue(data);
+	time++;
 }

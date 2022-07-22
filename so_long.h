@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 00:10:31 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:33:06 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "unistd.h"
 # include "string.h"
 # include "stdlib.h"
+# include "time.h"
 # include "sys/stat.h"
 # include "fcntl.h"
 
@@ -27,17 +28,17 @@
 /*############################################################################*/
 
 /*
-	SD is for slow down, the higher SD is, the slower the player goes
-	Definitions of multiple SDs for different map sizes
-*/
-
-/*
 	PIX is for the number of pixels per move of the player
 */
 
 # ifndef PIX
 #  define PIX 2
 # endif
+
+/*
+	SD is for slow down, the higher SD is, the slower the player goes
+	Definitions of multiple SDs for different map sizes
+*/
 
 # ifndef SD1
 #  define SD1 14
@@ -172,12 +173,16 @@ int		handle_keypress(int key, t_data *data);
 /*############################################################################*/
 
 void	move_right(t_data *data);
+void	move_enemy_right(t_data *data);
 void	move_left(t_data *data);
+void	move_enemy_left(t_data *data);
 void	move_down(t_data *data);
+void	move_enemy_down(t_data *data);
 void	move_up(t_data *data);
-void	win_game(t_data *data, size_t pos_x, size_t pos_y);
-void	lose_game(t_data *data, size_t pos_x, size_t pos_y);
-int		no_move(t_data *data, size_t pos_x, size_t pos_y);
+void	move_enemy_up(t_data *data);
+void	win_game(t_data *data, int pos_x, int pos_y);
+void	lose_game(t_data *data, int pos_x, int pos_y);
+int		no_move(t_data *data, int pos_x, int pos_y);
 void	get_coll(t_data *data);
 
 /*############################################################################*/
@@ -203,5 +208,7 @@ int		get_nb_colls(char **map);
 void	put_enemy_to_image(t_img *img, int x, int y, char *data_tile);
 char	*create_new_data(t_tile *enemy, t_tile *new_enemy);
 void	render_enemy(t_data *data);
+void	render_enemy_continue(t_data *data);
+void	exec_move_enemy(t_data *data, int nb);
 
 #endif

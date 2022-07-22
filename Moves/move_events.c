@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 00:13:16 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 12:55:05 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	get_coll(t_data *data)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	y = data->pos_y + 14;
 	x = data->pos_x + 14;
-	while (y < (size_t)data->pos_y + 18)
+	while (y < data->pos_y + 18)
 	{
 		x = data->pos_x + 14;
-		while (x < (size_t)data->pos_x + 18)
+		while (x < data->pos_x + 18)
 		{
 			if ((data->map)[y / 32][x / 32] == 'C'
 				|| (data->map)[y / 32][x / 32] == 'B')
@@ -39,17 +39,17 @@ void	get_coll(t_data *data)
 	}
 }
 
-int	no_move(t_data *data, size_t pos_x, size_t pos_y)
+int	no_move(t_data *data, int pos_x, int pos_y)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	y = pos_y;
 	x = pos_x;
-	while (y < (size_t)pos_y + 32)
+	while (y < pos_y + 32)
 	{
 		x = pos_x;
-		while (x < (size_t)pos_x + 32)
+		while (x < pos_x + 32)
 		{
 			if ((data->map)[y / 32][x / 32] == '1')
 			{
@@ -62,23 +62,23 @@ int	no_move(t_data *data, size_t pos_x, size_t pos_y)
 	return (0);
 }
 
-void	lose_game(t_data *data, size_t pos_x, size_t pos_y)
+void	lose_game(t_data *data, int pos_x, int pos_y)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	y = pos_y;
 	x = pos_x;
-	while (y < (size_t)pos_y + 32)
+	while (y < pos_y + 32)
 	{
 		x = pos_x;
-		while (x < (size_t)pos_x + 32)
+		while (x < pos_x + 32)
 		{
-			if ((x >= (size_t)data->pos_enemy_x && x <= (size_t)data->pos_enemy_x + 31)
-				&& (y <= (size_t)data->pos_enemy_y && y <= (size_t)data->pos_enemy_y + 31))
+			if ((x >= data->pos_enemy_x && x <= data->pos_enemy_x + 31)
+				&& (y >= data->pos_enemy_y && y <= data->pos_enemy_y + 31))
 			{
-				ft_printf("nb of moves = %i\n", ++data->nb_moves);
-				ft_printf("You lost !\n");
+				ft_printf("\n*** Total moves: %i ***\n\n", ++data->nb_moves);
+				ft_printf("You lost ! :(\n\n");
 				ft_close(data);
 				return ;
 			}
@@ -89,24 +89,24 @@ void	lose_game(t_data *data, size_t pos_x, size_t pos_y)
 	return ;
 }
 
-void	win_game(t_data *data, size_t pos_x, size_t pos_y)
+void	win_game(t_data *data, int pos_x, int pos_y)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	if (data->colls != 0)
 		return ;
 	y = pos_y;
 	x = pos_x;
-	while (y < (size_t)pos_y + 32)
+	while (y < pos_y + 32)
 	{
 		x = pos_x;
-		while (x < (size_t)pos_x + 32)
+		while (x < pos_x + 32)
 		{
 			if ((data->map)[y / 32][x / 32] == 'E')
 			{
-				ft_printf("nb of moves = %i\n", ++data->nb_moves);
-				ft_printf("You won !\n");
+				ft_printf("\n*** Total moves: %i ***\n\n", ++data->nb_moves);
+				ft_printf("You won ! :)\n\n");
 				ft_close(data);
 				return ;
 			}

@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 18:04:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/21 23:42:41 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:04:03 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_init_data_tab_tiles(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < 16)
+	while (i < 26)
 	{
 		data->tiles[i] = 0;
 		i++;
@@ -56,7 +56,7 @@ int	init_new_enemy(t_data *data)
 
 int	ft_init_tiles(t_data *data)
 {
-	int	ret_init[8];
+	int	ret_init[9];
 	int	i;
 
 	ft_init_data_tab_tiles(data);
@@ -68,8 +68,9 @@ int	ft_init_tiles(t_data *data)
 	ret_init[5] = init_wall(data);
 	ret_init[6] = init_player(data);
 	ret_init[7] = init_player_br(data);
+	ret_init[8] = init_numbers(data);
 	i = 0;
-	while (i < 8)
+	while (i < 9)
 	{
 		if (ret_init[i] == 0)
 			return (0);

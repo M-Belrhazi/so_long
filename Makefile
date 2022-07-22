@@ -6,15 +6,16 @@ SRCS= so_long.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
 		Mapping/mapping_utils.c Display/display.c Display/display_tiles.c \
 		Init/ft_init_tiles.c ft_close.c Moves/moves.c Moves/move_events.c handlers.c \
 		Display/display_player.c Mapping/ft_write_errors.c Init/ft_init_tiles_continue.c \
-		Init/ft_init_player_tiles.c
+		Init/ft_init_player_tiles.c Init/ft_init_number_tiles.c
 
 OBJS= $(SRCS:.c=.o)
 
-SRCS_bonus= so_long.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
-		Mapping/mapping_utils.c Display/display_bonus.c Display/display_tiles.c \
-		Init/ft_init_tiles.c ft_close.c Moves/moves_enemy_bonus.c Moves/move_events.c handlers.c \
+SRCS_bonus= so_long_bonus.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
+		Mapping/mapping_utils.c Display/display_bonus.c Display/display_tiles_bonus.c \
+		Init/ft_init_tiles.c ft_close.c Moves/moves_enemy_bonus.c Moves/move_events_bonus.c handlers.c \
 		Display/display_player.c Mapping/ft_write_errors.c Moves/moves_bonus.c \
-		Display/display_enemies_bonus.c Init/ft_init_tiles_continue.c Init/ft_init_player_tiles.c
+		Display/display_enemies_bonus.c Init/ft_init_tiles_continue.c Init/ft_init_player_tiles.c \
+		Init/ft_init_number_tiles.c
 
 OBJS_bonus= $(SRCS_bonus:.c=.o)
 

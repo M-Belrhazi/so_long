@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:31:02 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 14:32:03 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:06:31 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	init_wall(t_data *data)
 	data->img->wall[0] = &wall[0];
 	data->img->wall[1] = &wall[1];
 	if (!wall)
-		return (data->tiles[2] = 0, data->tiles[3] = 0, 0);
+		return (0);
 	wall[0].tile = mlx_xpm_file_to_image(data->mlx, "imgs/walls/blue.xpm",
 			&wall[0].width, &wall[0].height);
 	wall[1].tile = mlx_xpm_file_to_image(data->mlx, "imgs/walls/blue2.xpm",
@@ -72,7 +72,7 @@ int	init_col(t_data *data)
 	data->img->col[0] = &col[0];
 	data->img->col[1] = &col[1];
 	if (!col)
-		return (data->tiles[4] = 0, data->tiles[5] = 0, 0);
+		return (0);
 	col[0].tile = mlx_xpm_file_to_image(data->mlx, "imgs/coll/col.xpm",
 			&col[0].width, &col[0].height);
 	col[1].tile = mlx_xpm_file_to_image(data->mlx, "imgs/coll/broom.xpm",

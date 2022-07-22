@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 14:53:47 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:10:20 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,17 @@
 #  define SD3 1
 # endif
 
+# define ZERO "imgs/nb/zero.xpm"
+# define ONE "imgs/nb/one.xpm"
+# define TWO "imgs/nb/two.xpm"
+# define THREE "imgs/nb/three.xpm"
+# define FOUR "imgs/nb/four.xpm"
+# define FIVE "imgs/nb/five.xpm"
+# define SIX "imgs/nb/six.xpm"
+# define SEVEN "imgs/nb/seven.xpm"
+# define EIGHT "imgs/nb/eight.xpm"
+# define NINE "imgs/nb/nine.xpm"
+
 typedef struct s_tile
 {
 	void	*tile;
@@ -74,6 +85,7 @@ typedef struct s_img {
 	t_tile	*wall[2];
 	t_tile	*col[2];
 	t_tile	*exit;
+	t_tile	numbers[10];
 	int		width;
 	int		height;
 	int		bpp;
@@ -84,7 +96,7 @@ typedef struct s_img {
 
 typedef struct s_data {
 	void	*mlx;
-	int		tiles[16];
+	int		tiles[26];
 	int		pos_x;
 	int		pos_y;
 	int		pos_enemy_x;
@@ -145,6 +157,7 @@ void	ft_close_mlx(t_data *data);
 void	ft_close_window(t_data *data);
 void	ft_destroy_image(t_data *data);
 void	ft_destroy_player(t_data *data);
+void	ft_destroy_numbers(t_data *data);
 
 /*############################################################################*/
 /*                            TILE INIT FUNCTIONS                             */
@@ -162,6 +175,9 @@ int		init_tile(t_data *data);
 void	ft_init_data_tab_tiles(t_data *data);
 int		init_player_continue(t_data *data, t_tile *player);
 int		init_player_br_continue(t_data *data, t_tile *player_br);
+int		init_numbers(t_data *data);
+int		init_numbers_0_4(t_data *data);
+int		init_numbers_5_9(t_data *data);
 
 /*############################################################################*/
 /*                             HANDLER FUNCTIONS                              */

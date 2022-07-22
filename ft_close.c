@@ -6,11 +6,35 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:23:08 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 14:56:35 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:09:59 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_destroy_numbers(t_data *data)
+{
+	if (data->tiles[16])
+		mlx_destroy_image(data->mlx, data->img->numbers[0].tile);
+	if (data->tiles[17])
+		mlx_destroy_image(data->mlx, data->img->numbers[1].tile);
+	if (data->tiles[18])
+		mlx_destroy_image(data->mlx, data->img->numbers[2].tile);
+	if (data->tiles[19])
+		mlx_destroy_image(data->mlx, data->img->numbers[3].tile);
+	if (data->tiles[20])
+		mlx_destroy_image(data->mlx, data->img->numbers[4].tile);
+	if (data->tiles[21])
+		mlx_destroy_image(data->mlx, data->img->numbers[5].tile);
+	if (data->tiles[22])
+		mlx_destroy_image(data->mlx, data->img->numbers[6].tile);
+	if (data->tiles[23])
+		mlx_destroy_image(data->mlx, data->img->numbers[7].tile);
+	if (data->tiles[24])
+		mlx_destroy_image(data->mlx, data->img->numbers[8].tile);
+	if (data->tiles[25])
+		mlx_destroy_image(data->mlx, data->img->numbers[9].tile);
+}
 
 void	ft_destroy_player(t_data *data)
 {
@@ -36,6 +60,7 @@ void	ft_destroy_image(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->img->img);
 	ft_destroy_player(data);
+	ft_destroy_numbers(data);
 	if (data->tiles[0])
 		mlx_destroy_image(data->mlx, data->img->tile->tile);
 	if (data->tiles[1])

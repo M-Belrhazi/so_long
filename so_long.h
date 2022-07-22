@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 19:10:20 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:37:37 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@
 #  define SD3 1
 # endif
 
-# define ZERO "imgs/nb/zero.xpm"
-# define ONE "imgs/nb/one.xpm"
-# define TWO "imgs/nb/two.xpm"
-# define THREE "imgs/nb/three.xpm"
-# define FOUR "imgs/nb/four.xpm"
-# define FIVE "imgs/nb/five.xpm"
-# define SIX "imgs/nb/six.xpm"
-# define SEVEN "imgs/nb/seven.xpm"
-# define EIGHT "imgs/nb/eight.xpm"
-# define NINE "imgs/nb/nine.xpm"
+# define ZERO "imgs/nb/0.xpm"
+# define ONE "imgs/nb/1.xpm"
+# define TWO "imgs/nb/2.xpm"
+# define THREE "imgs/nb/3.xpm"
+# define FOUR "imgs/nb/4.xpm"
+# define FIVE "imgs/nb/5.xpm"
+# define SIX "imgs/nb/6.xpm"
+# define SEVEN "imgs/nb/7.xpm"
+# define EIGHT "imgs/nb/8.xpm"
+# define NINE "imgs/nb/9.xpm"
 
 typedef struct s_tile
 {

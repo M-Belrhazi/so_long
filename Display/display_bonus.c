@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 21:48:29 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 17:51:42 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:42:33 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,19 @@ void	handle_moves(t_data *data)
 	x++;
 }
 
+void	render_enemy_player(t_data *data)
+{
+	render_enemy(data);
+	render_player(data);
+}
+
 int	render_map(t_data *data)
 {
 	t_img	*img;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 	char	**map;
+	t_bool	first_digit;
 
 	handle_moves(data);
 	img = data->img;
@@ -78,8 +85,9 @@ int	render_map(t_data *data)
 		}
 		i++;
 	}
-	render_enemy(data);
-	render_player(data);
+	first_digit = TRUE;
+	render_score(data, data->nb_moves, &first_digit);
+	render_enemy_player(data);
 	mlx_put_image_to_window(data->mlx, data->win, img->img, 0, 0);
 	return (0);
 }

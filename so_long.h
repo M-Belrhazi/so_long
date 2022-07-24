@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 19:37:37 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:43:08 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,13 @@
 /*                                DEFINITIONS                                 */
 /*############################################################################*/
 
+typedef unsigned int	t_bool;
+
+# define TRUE 1
+# define FALSE 0
+
 /*
-	PIX is for the number of pixels per move of the player
+	PIX is for the number of pixels per move of the player and enemy
 */
 
 # ifndef PIX
@@ -36,7 +41,7 @@
 # endif
 
 /*
-	SD is for slow down, the higher SD is, the slower the player goes
+	SD is for slow down, the higher SD is, the slower the player/enemy goes
 	Definitions of multiple SDs for different map sizes
 */
 
@@ -147,6 +152,8 @@ void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y);
 void	render_player(t_data *data);
 void	render_player_br(t_data *data);
 void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
+void	display_number(t_data *data, int nb, t_bool first_digit);
+void	render_score(t_data *data, int score, t_bool *first_digit);
 
 /*############################################################################*/
 /*                             DESTROY FUNCTIONS                              */
@@ -178,6 +185,7 @@ int		init_player_br_continue(t_data *data, t_tile *player_br);
 int		init_numbers(t_data *data);
 int		init_numbers_0_4(t_data *data);
 int		init_numbers_5_9(t_data *data);
+void	render_enemy_player(t_data *data);
 
 /*############################################################################*/
 /*                             HANDLER FUNCTIONS                              */

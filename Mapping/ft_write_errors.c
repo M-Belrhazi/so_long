@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:51:20 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/18 16:33:27 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:37:08 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	ret_2_write(void)
 
 void	ret_3_write(void)
 {
-	write(2, "Error\nmap not a rectangle\n", 26);
+	write(2, "Error\nMap not a rectangle\n", 26);
 }
 
 void	ret_4_write(void)
 {
-	write(2, "Error\nmap cut\n", 14);
+	write(2, "Error\nMap cut\n", 14);
 }
 
 void	ret_write(int return_nb)

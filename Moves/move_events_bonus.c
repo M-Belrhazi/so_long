@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 18:01:56 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:35:27 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	lose_game(t_data *data, int pos_x, int pos_y)
 			if ((x >= data->pos_enemy_x && x <= data->pos_enemy_x + 31)
 				&& (y >= data->pos_enemy_y && y <= data->pos_enemy_y + 31))
 			{
-				ft_printf("\n*** Total moves: %i ***\n\n", ++data->nb_moves);
+				ft_printf("\n*** Total moves: %i ***\n\n", data->nb_moves);
 				ft_printf("You lost ! :(\n\n");
 				ft_close(data);
 				return ;

@@ -21,19 +21,19 @@ OBJS_bonus= $(SRCS_bonus:.c=.o)
 
 NAME= so_long
 
-%.o : %.c
+%.o : %.c so_long.h
 	$(CC) -g3 $(CFLAGS) -c $< -o $@
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) so_long.h
+$(NAME) : $(OBJS)
 	make -s -C libs/minilibx
 	make -s -C libs/libftprintf
 	$(CC) -g3 -o $(NAME) $(OBJS) -L libs/minilibx -lmlx -lX11 -lXext -L libs/libftprintf -lftprintf
 
 bonus : so_long_bonus
 
-so_long_bonus : $(OBJS_bonus) so_long.h
+so_long_bonus : $(OBJS_bonus)
 	make -s -C libs/minilibx
 	make -s -C libs/libftprintf
 	$(CC) -g3 -o so_long_bonus $(OBJS_bonus) -L libs/minilibx -lmlx -lX11 -lXext -L libs/libftprintf -lftprintf

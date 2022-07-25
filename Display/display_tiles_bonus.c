@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:54:48 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 17:54:13 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:20:56 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,29 @@ void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y)
 	}
 }
 
+void	render_broom(int x, int y, t_img *img)
+{
+	int			tiles[4];
+	static int	time;
+	static int	tile;
+	static int	i;
+
+	tiles[0] = 1;
+	tiles[1] = 2;
+	tiles[2] = 1;
+	tiles[3] = 3;
+	tile = tiles[i];
+	time++;
+	if (time % (10 * SD1) == 0)
+	{
+		i++;
+		if (i == 4)
+			i = 0;
+		tile = tiles[i];
+	}
+	put_tile_to_image(img, img->col[tile], x, y);
+}
+
 void	render_tile_continue(char c, int x, int y, t_data *data)
 {
 	t_img		*img;
@@ -50,7 +73,7 @@ void	render_tile_continue(char c, int x, int y, t_data *data)
 	if ((c == 'C' && broom_placed == 0) || c == 'B')
 	{
 		(data->map)[(y / 32) - 1][x / 32] = 'B';
-		put_tile_to_image(img, img->col[1], x, y);
+		render_broom(x, y, img);
 		broom_placed = 1;
 	}
 	else if (c == 'C')

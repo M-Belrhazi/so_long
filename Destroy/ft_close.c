@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:23:08 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/24 19:44:54 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/25 18:12:50 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ void	ft_destroy_image(t_data *data)
 		mlx_destroy_image(data->mlx, data->img->col[0]->tile);
 	if (data->tiles[5])
 		mlx_destroy_image(data->mlx, data->img->col[1]->tile);
+	if (data->tiles[26])
+		mlx_destroy_image(data->mlx, data->img->col[2]->tile);
+	if (data->tiles[27])
+		mlx_destroy_image(data->mlx, data->img->col[3]->tile);
 	if (data->tiles[2])
 		mlx_destroy_image(data->mlx, data->img->wall[0]->tile);
 	if (data->tiles[3])

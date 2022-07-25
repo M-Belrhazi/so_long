@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/25 14:40:53 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:10:41 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct s_img {
 	t_tile	*enemy;
 	t_tile	*new_enemy;
 	t_tile	*wall[2];
-	t_tile	*col[2];
+	t_tile	*col[4];
 	t_tile	*exit;
 	t_tile	numbers[10];
 	int		width;
@@ -101,7 +101,7 @@ typedef struct s_img {
 
 typedef struct s_data {
 	void	*mlx;
-	int		tiles[26];
+	int		tiles[28];
 	int		pos_x;
 	int		pos_y;
 	int		pos_enemy_x;
@@ -154,6 +154,7 @@ void	render_player_br(t_data *data);
 void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
 void	display_number(t_data *data, int nb, t_bool first_digit);
 void	render_score(t_data *data, int score, t_bool *first_digit);
+void	render_broom(int x, int y, t_img *img);
 
 /*############################################################################*/
 /*                             DESTROY FUNCTIONS                              */
@@ -176,6 +177,7 @@ int		init_player(t_data *data);
 int		init_new_enemy(t_data *data);
 int		init_enemy(t_data *data);
 int		init_col(t_data *data);
+int		init_col_continue(t_data *data, t_tile *col);
 int		init_wall(t_data *data);
 int		init_exit(t_data *data);
 int		init_tile(t_data *data);

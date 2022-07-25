@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 18:04:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 19:04:03 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/25 18:08:52 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_init_data_tab_tiles(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < 26)
+	while (i < 28)
 	{
 		data->tiles[i] = 0;
 		i++;

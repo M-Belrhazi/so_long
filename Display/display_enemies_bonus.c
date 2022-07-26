@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 21:30:01 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 13:49:02 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:33:22 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,10 @@ void	render_enemy(t_data *data)
 {
 	static int	rand_value;
 	static int	time;
-	int			sd_index;
 
-	sd_index = SD1;
-	if (data->img->width + data->img->width > 1000)
-		sd_index = SD2;
-	if (data->img->width + data->img->width > 5000)
-		sd_index = SD3;
 	if (time == 0 || time % 200 == 0)
 		rand_value = rand() % 5 + 1;
-	if (time % sd_index == 0)
-		exec_move_enemy(data, rand_value);
+	exec_move_enemy(data, rand_value);
 	render_enemy_continue(data);
 	time++;
 }

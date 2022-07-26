@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 21:48:29 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/16 19:21:44 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:32:27 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,14 @@ int	ft_height_win(char **map)
 
 void	handle_moves(t_data *data)
 {
-	static size_t	x;
-	int				sd_index;
-
-	sd_index = SD1;
-	if (data->img->width + data->img->width > 1000)
-		sd_index = SD2;
-	if (data->img->width + data->img->width > 5000)
-		sd_index = SD3;
-	if (data->down[0] == 1 && x % sd_index == 0)
+	if (data->down[0] == 1)
 		move_up(data);
-	if (data->down[1] == 1 && x % sd_index == 0)
+	if (data->down[1] == 1)
 		move_left(data);
-	if (data->down[2] == 1 && x % sd_index == 0)
+	if (data->down[2] == 1)
 		move_down(data);
-	if (data->down[3] == 1 && x % sd_index == 0)
+	if (data->down[3] == 1)
 		move_right(data);
-	x++;
 }
 
 int	render_map(t_data *data)

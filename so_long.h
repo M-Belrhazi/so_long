@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 16:55:17 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:54:02 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,13 @@
 /*                                DEFINITIONS                                 */
 /*############################################################################*/
 
-typedef unsigned int	t_bool;
-
-# define TRUE 1
-# define FALSE 0
-
 /*
 	PIX is for the number of pixels per move of the player and enemy
 */
 
 # ifndef PIX
-#  define PIX 2
+#  define PIX 5
 # endif
-
-/*
-	SD is for slow down, the higher SD is, the slower the player/enemy goes
-	Definitions of multiple SDs for different map sizes
-*/
-
-enum e_SD
-{
-	SD1 = 14,
-	SD2 = 2,
-	SD3 = 1
-};
 
 # define ZERO "imgs/nb/0.xpm"
 # define ONE "imgs/nb/1.xpm"
@@ -62,6 +45,11 @@ enum e_SD
 # define SEVEN "imgs/nb/7.xpm"
 # define EIGHT "imgs/nb/8.xpm"
 # define NINE "imgs/nb/9.xpm"
+
+typedef unsigned int	t_bool;
+
+# define TRUE 1
+# define FALSE 0
 
 typedef struct s_tile
 {
@@ -97,10 +85,10 @@ typedef struct s_img {
 typedef struct s_data {
 	void	*mlx;
 	int		tiles[28];
-	int		pos_x;
-	int		pos_y;
-	int		pos_enemy_x;
-	int		pos_enemy_y;
+	float	pos_x;
+	float	pos_y;
+	float	pos_enemy_x;
+	float	pos_enemy_y;
 	int		colls;
 	int		nb_moves;
 	int		broom;

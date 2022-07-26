@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 17:54:02 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 19:20:31 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,16 @@
 */
 
 # ifndef PIX
-#  define PIX 5
+#  define PIX 0.2
+# endif
+
+/*
+	ANIM defines the speed of the broom animation, the higher it is,
+	the slower the animation
+*/
+
+# ifndef ANIM
+#  define ANIM 8
 # endif
 
 # define ZERO "imgs/nb/0.xpm"

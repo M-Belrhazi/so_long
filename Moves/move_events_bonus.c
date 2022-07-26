@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/25 14:35:27 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 19:20:27 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	get_coll(t_data *data)
 	int	y;
 
 	y = data->pos_y + 14;
-	x = data->pos_x + 14;
 	while (y < data->pos_y + 18)
 	{
 		x = data->pos_x + 14;
@@ -45,7 +44,6 @@ int	no_move(t_data *data, int pos_x, int pos_y)
 	int	y;
 
 	y = pos_y;
-	x = pos_x;
 	while (y < pos_y + 32)
 	{
 		x = pos_x;
@@ -68,7 +66,6 @@ void	lose_game(t_data *data, int pos_x, int pos_y)
 	int	y;
 
 	y = pos_y;
-	x = pos_x;
 	while (y < pos_y + 32)
 	{
 		x = pos_x;
@@ -97,7 +94,6 @@ void	win_game(t_data *data, int pos_x, int pos_y)
 	if (data->colls != 0)
 		return ;
 	y = pos_y;
-	x = pos_x;
 	while (y < pos_y + 32)
 	{
 		x = pos_x;

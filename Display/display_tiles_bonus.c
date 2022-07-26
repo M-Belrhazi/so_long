@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:54:48 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 17:36:20 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 18:58:14 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y)
 	while (x_tile < tile->line_size * 32)
 	{
 		addon = (x * (tile->bpp / 8)) + i + y * (img->line_size);
-		*(unsigned int *)(data_img + addon) = *(unsigned int *)
-			(data_tile + x_tile);
+		if (*(unsigned int *)(data_img + addon) != *(unsigned int *)
+			(data_tile + x_tile))
+			*(unsigned int *)(data_img + addon) = *(unsigned int *)
+				(data_tile + x_tile);
 		x_tile += (tile->bpp / 8);
 		i += (tile->bpp / 8);
-		if (i >= tile->line_size)
-		{
+		if (i >= tile->line_size && y++)
 			i = 0;
-			y++;
-		}
 	}
 }
 
@@ -54,7 +53,7 @@ void	render_broom(int x, int y, t_img *img)
 	tiles[3] = 3;
 	tile = tiles[i];
 	time++;
-	if (time % 5 == 0)
+	if (time % (int)(5 * ANIM) == 0)
 	{
 		i++;
 		if (i == 4)

@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/22 18:02:28 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 19:19:56 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	get_coll(t_data *data)
 	int	y;
 
 	y = data->pos_y + 14;
-	x = data->pos_x + 14;
 	while (y < data->pos_y + 18)
 	{
 		x = data->pos_x + 14;
@@ -45,7 +44,6 @@ int	no_move(t_data *data, int pos_x, int pos_y)
 	int	y;
 
 	y = pos_y;
-	x = pos_x;
 	while (y < pos_y + 32)
 	{
 		x = pos_x;
@@ -62,33 +60,6 @@ int	no_move(t_data *data, int pos_x, int pos_y)
 	return (0);
 }
 
-void	lose_game(t_data *data, int pos_x, int pos_y)
-{
-	int	x;
-	int	y;
-
-	y = pos_y;
-	x = pos_x;
-	while (y < pos_y + 32)
-	{
-		x = pos_x;
-		while (x < pos_x + 32)
-		{
-			if ((x >= data->pos_enemy_x && x <= data->pos_enemy_x + 31)
-				&& (y >= data->pos_enemy_y && y <= data->pos_enemy_y + 31))
-			{
-				ft_printf("\n*** Total moves: %i ***\n\n", ++data->nb_moves);
-				ft_printf("You lost ! :(\n\n");
-				ft_close(data);
-				return ;
-			}
-			x++;
-		}
-		y++;
-	}
-	return ;
-}
-
 void	win_game(t_data *data, int pos_x, int pos_y)
 {
 	int	x;
@@ -97,7 +68,6 @@ void	win_game(t_data *data, int pos_x, int pos_y)
 	if (data->colls != 0)
 		return ;
 	y = pos_y;
-	x = pos_x;
 	while (y < pos_y + 32)
 	{
 		x = pos_x;

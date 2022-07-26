@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:41 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:55:17 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,12 @@ typedef unsigned int	t_bool;
 	Definitions of multiple SDs for different map sizes
 */
 
-# ifndef SD1
-#  define SD1 14
-# endif
-
-# ifndef SD2
-#  define SD2 2
-# endif
-
-# ifndef SD3
-#  define SD3 1
-# endif
+enum e_SD
+{
+	SD1 = 14,
+	SD2 = 2,
+	SD3 = 1
+};
 
 # define ZERO "imgs/nb/0.xpm"
 # define ONE "imgs/nb/1.xpm"

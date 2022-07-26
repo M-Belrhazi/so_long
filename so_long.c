@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/24 13:29:17 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:49:18 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	get_nb_colls(char **map)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	int		nb_colls;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:54:48 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/25 19:20:56 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:28:16 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,20 @@ void	render_broom(int x, int y, t_img *img)
 	static int	time;
 	static int	tile;
 	static int	i;
+	int			sd_index;
 
+	sd_index = SD1;
+	if (img->width + img->width > 1000)
+		sd_index = SD2;
+	if (img->width + img->width > 5000)
+		sd_index = SD3;
 	tiles[0] = 1;
 	tiles[1] = 2;
 	tiles[2] = 1;
 	tiles[3] = 3;
 	tile = tiles[i];
 	time++;
-	if (time % (10 * SD1) == 0)
+	if (time % (5 * sd_index) == 0)
 	{
 		i++;
 		if (i == 4)

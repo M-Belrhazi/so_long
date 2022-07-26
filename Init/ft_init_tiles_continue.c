@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:31:02 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/25 18:15:21 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:26:37 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int	init_col_continue(t_data *data, t_tile *col)
 			&col[1].width, &col[1].height);
 	if (col[1].tile)
 		data->tiles[5] = 1;
-	col[2].tile = mlx_xpm_file_to_image(data->mlx, "imgs/coll/broom_left.xpm",
-			&col[2].width, &col[2].height);
+	col[2].tile = mlx_xpm_file_to_image(data->mlx,
+			"imgs/coll/broom_crooked_left.xpm", &col[2].width, &col[2].height);
 	if (col[2].tile)
 		data->tiles[26] = 1;
-	col[3].tile = mlx_xpm_file_to_image(data->mlx, "imgs/coll/broom_right.xpm",
-			&col[3].width, &col[3].height);
+	col[3].tile = mlx_xpm_file_to_image(data->mlx,
+			"imgs/coll/broom_crooked_right.xpm", &col[3].width, &col[3].height);
 	if (col[3].tile)
 		data->tiles[27] = 1;
 	if (!col[0].tile || !col[1].tile || !col[2].tile || !col[3].tile)

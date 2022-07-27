@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 12:19:37 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/05/10 14:51:20 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:06:30 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (start > slen)
 	{
-		str = malloc(sizeof(char));
-		str[0] = '\0';
-		return (str);
+		return (ft_strdup(""));
 	}
 	if (start + len < slen)
 		slen = start + len;

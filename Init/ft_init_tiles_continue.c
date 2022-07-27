@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:31:02 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 19:10:41 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:16:31 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	init_wall(t_data *data)
 	t_tile	*wall;
 
 	wall = malloc(sizeof(t_tile) * 2);
-	data->img->wall[0] = &wall[0];
-	data->img->wall[1] = &wall[1];
+	data->img->wall[0] = wall;
 	if (!wall)
 		return (0);
+	data->img->wall[1] = &wall[1];
 	wall[0].tile = mlx_xpm_file_to_image(data->mlx, "imgs/walls/blue.xpm",
 			&wall[0].width, &wall[0].height);
 	wall[1].tile = mlx_xpm_file_to_image(data->mlx, "imgs/walls/blue2.xpm",
@@ -92,11 +92,11 @@ int	init_col(t_data *data)
 	t_tile	*col;
 
 	col = malloc(sizeof(t_tile) * 4);
-	data->img->col[0] = &col[0];
+	data->img->col[0] = col;
+	if (!col)
+		return (0);
 	data->img->col[1] = &col[1];
 	data->img->col[2] = &col[2];
 	data->img->col[3] = &col[3];
-	if (!col)
-		return (0);
 	return (init_col_continue(data, col));
 }

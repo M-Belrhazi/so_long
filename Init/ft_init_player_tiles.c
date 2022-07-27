@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:31:52 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 19:09:48 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:17:02 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	init_player(t_data *data)
 	t_tile	*player;
 
 	player = malloc(sizeof(t_tile) * 4);
-	data->img->player[0] = &player[0];
+	data->img->player[0] = player;
+	if (!player)
+		return (0);
 	data->img->player[1] = &player[1];
 	data->img->player[2] = &player[2];
 	data->img->player[3] = &player[3];
-	if (!player)
-		return (0);
 	return (init_player_continue(data, player));
 }
 
@@ -83,11 +83,11 @@ int	init_player_br(t_data *data)
 	t_tile	*player_br;
 
 	player_br = malloc(sizeof(t_tile) * 4);
-	data->img->player_br[0] = &player_br[0];
+	data->img->player_br[0] = player_br;
+	if (!player_br)
+		return (0);
 	data->img->player_br[1] = &player_br[1];
 	data->img->player_br[2] = &player_br[2];
 	data->img->player_br[3] = &player_br[3];
-	if (!player_br)
-		return (0);
 	return (init_player_br_continue(data, player_br));
 }

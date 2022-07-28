@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 19:20:31 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 02:14:52 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 */
 
 # ifndef ANIM
-#  define ANIM 8
+#  define ANIM 50
 # endif
 
 # define ZERO "imgs/nb/0.xpm"
@@ -98,7 +98,10 @@ typedef struct s_data {
 	float	pos_y;
 	float	pos_enemy_x;
 	float	pos_enemy_y;
+	int		pos_wall_i;
+	int		pos_wall_j;
 	int		colls;
+	float	pix;
 	int		nb_moves;
 	int		broom;
 	int		down[4];
@@ -217,7 +220,7 @@ int		find_error(char *str);
 /*############################################################################*/
 
 int		ft_mlx(char **map);
-void	ft_init_data(t_data *data, char **map);
+void	ft_init_data(t_data *data, char **map, t_img *img);
 void	ft_init_pos_enemy(t_data *data, char **map);
 int		get_nb_colls(char **map);
 

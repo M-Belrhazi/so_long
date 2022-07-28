@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:21:26 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 19:19:56 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 03:20:19 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	no_move(t_data *data, int pos_x, int pos_y)
 		{
 			if ((data->map)[y / 32][x / 32] == '1')
 			{
+				data->pos_wall_i = y / 32 - 1;
+				data->pos_wall_j = x / 32;
 				return (1);
 			}
 			x++;

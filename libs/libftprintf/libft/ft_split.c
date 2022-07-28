@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 21:53:45 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/11 22:15:19 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:57:11 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ char	**ft_split(char const *s, char c)
 	{
 		strs[i] = malloc(sizeof(char) * (ft_size(s, c, j)));
 		if (strs[i] == NULL)
-			return (ft_free(strs, count));
+			return (ft_free(strs, i));
 		i++;
 	}
 	return (ft_fillstrs(s, c, strs, count));

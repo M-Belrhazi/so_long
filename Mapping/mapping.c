@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:23:12 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/18 16:42:42 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:01:07 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	fill_map(char ***map, char *ol_map)
 		return (free(ol_map), ret_write(4), 4);
 	*map = ft_split(ol_map, '\n');
 	if (!(*map))
-		return (ret_write(1), 1);
+		return (free(ol_map), ret_write(1), 1);
 	if (!walls_map(*map) || invalid_char_map(*map)
 		|| !exit_map(*map) || !player_map(*map) || !col_map(*map))
 		return (free(ol_map), free_map(*map), 1);

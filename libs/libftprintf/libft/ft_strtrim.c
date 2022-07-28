@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:25:51 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/11 20:20:08 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:56:25 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		count = indexes[1] - indexes[0] + 1;
 	trim = malloc(sizeof(char) * (count + 1));
 	if (trim == NULL)
-		return (trim);
+		return (free((char *)s1), trim);
 	trim[count] = '\0';
 	if (count == 0)
 		return (trim);

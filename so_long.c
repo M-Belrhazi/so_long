@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 17:30:48 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:31:34 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_init_pos_enemy(t_data *data, char **map)
 	data->pos_enemy_y = i * 32;
 }
 
-void	ft_init_data(t_data *data, char **map)
+void	ft_init_data(t_data *data, char **map, t_img *img)
 {
 	data->down[0] = 0;
 	data->down[1] = 0;
@@ -69,6 +69,7 @@ void	ft_init_data(t_data *data, char **map)
 	data->down[3] = 0;
 	data->map = map;
 	data->colls = get_nb_colls(map);
+	data->pix = PIX * (img->width * img->height) / (260 * 300);
 	ft_init_pos_enemy(data, map);
 	data->nb_moves = 0;
 	data->broom = 0;
@@ -82,7 +83,6 @@ int	ft_mlx(char **map)
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (0);
-	ft_init_data(&data, map);
 	img.width = ft_width_win(map);
 	img.height = ft_height_win(map);
 	data.win = mlx_new_window(data.mlx, img.width,
@@ -90,6 +90,7 @@ int	ft_mlx(char **map)
 	if (!data.win)
 		return (ft_close_mlx(&data), 0);
 	img.img = mlx_new_image(data.mlx, img.width, img.height);
+	ft_init_data(&data, map, &img);
 	data.img = &img;
 	if (!data.img->img)
 		return (ft_close_window(&data), ft_close_mlx(&data), 0);

@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:36:11 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/06/11 21:20:16 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:40:42 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ char	*fillline(char *buffer, char *line, int line_1)
 
 	i = 0;
 	tmp = ft_strdup_2(line);
-	if (tmp == NULL)
-		return (NULL);
 	if (!line_1)
 		free(line);
+	if (tmp == NULL)
+		return (NULL);
 	line = malloc(sizeof(char) * (ft_strlen_2(tmp) + ft_strlen_nl(buffer) + 1));
 	if (line == NULL)
 	{

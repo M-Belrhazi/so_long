@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 21:15:46 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/11 19:48:28 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:54:18 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	count += i + 1;
 	superstr = malloc(sizeof(char) * count);
 	if (superstr == NULL)
-		return (NULL);
+		return (free((char *)s1), NULL);
 	superstr[count - 1] = '\0';
 	return (ft_fillsuperstr(s1, s2, superstr));
 }

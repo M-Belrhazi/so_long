@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 18:04:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/25 18:08:52 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:03:06 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int	init_new_enemy(t_data *data)
 	t_tile	*new_enemy;
 
 	new_enemy = malloc(sizeof(t_tile));
+	data->img->new_enemy = new_enemy;
 	if (!new_enemy)
 		return (0);
 	new_enemy->tile = mlx_xpm_file_to_image(data->mlx, "imgs/cato.xpm",
 			&new_enemy->width, &new_enemy->height);
 	if (!new_enemy->tile)
 		return (0);
-	data->img->new_enemy = new_enemy;
 	return (data->tiles[7] = 1, 1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:21:34 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/27 17:31:30 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:50:29 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_init_data(t_data *data, char **map, t_img *img)
 	data->map = map;
 	data->colls = get_nb_colls(map);
 	data->pix = PIX * (img->width * img->height) / (260 * 300);
+	data->anim = ANIM * (300 * 400) / (img->height * img->width);
 	ft_init_pos_enemy(data, map);
 	data->nb_moves = 0;
 	data->broom = 0;

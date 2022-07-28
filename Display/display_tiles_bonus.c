@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:54:48 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/27 23:43:57 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:52:35 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	put_tile_to_image(t_img *img, t_tile *tile, int x, int y)
 	}
 }
 
-void	render_broom(int x, int y, t_img *img)
+void	render_broom(int x, int y, t_img *img, t_data *data)
 {
 	int			tiles[4];
 	static int	time;
@@ -53,7 +53,7 @@ void	render_broom(int x, int y, t_img *img)
 	tiles[3] = 3;
 	tile = tiles[i];
 	time++;
-	if (time % (int)(ANIM * (300 * 400) / (img->height * img->width)) == 0)
+	if (time % (int)(data->anim) == 0)
 	{
 		i++;
 		if (i == 4)
@@ -72,7 +72,7 @@ void	render_tile_continue(char c, int x, int y, t_data *data)
 	if ((c == 'C' && broom_placed == 0) || c == 'B')
 	{
 		(data->map)[(y / 32) - 1][x / 32] = 'B';
-		render_broom(x, y, img);
+		render_broom(x, y, img, data);
 		broom_placed = 1;
 	}
 	else if (c == 'C')

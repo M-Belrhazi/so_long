@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:36:10 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/28 02:14:52 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:52:10 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # endif
 
 /*
-	ANIM defines the speed of the broom animation, the higher it is,
-	the slower the animation
+	ANIM defines the speed of the animations, the higher it is,
+	the slower the animation is
 */
 
 # ifndef ANIM
@@ -102,6 +102,7 @@ typedef struct s_data {
 	int		pos_wall_j;
 	int		colls;
 	float	pix;
+	float	anim;
 	int		nb_moves;
 	int		broom;
 	int		down[4];
@@ -149,7 +150,7 @@ void	render_player_br(t_data *data);
 void	put_player_to_image(t_img *img, int x, int y, t_tile *player);
 void	display_number(t_data *data, int nb, t_bool first_digit);
 void	render_score(t_data *data, int score, t_bool *first_digit);
-void	render_broom(int x, int y, t_img *img);
+void	render_broom(int x, int y, t_img *img, t_data *data);
 
 /*############################################################################*/
 /*                             DESTROY FUNCTIONS                              */

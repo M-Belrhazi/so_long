@@ -2,7 +2,7 @@ CFLAGS= -Wall -Werror -Wextra
 
 CC= cc
 
-SRCS= so_long.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
+SRCS= so_long.c parsing.c Mapping/mapping.c so_long_utils.c Mapping/map_errors.c \
 		Mapping/mapping_utils.c Display/display.c Display/display_tiles.c \
 		Init/ft_init_tiles.c Destroy/ft_close.c Destroy/ft_destroy_numbers.c Moves/moves.c Moves/move_events.c handlers.c \
 		Display/display_player.c Mapping/ft_write_errors.c Init/ft_init_tiles_continue.c \
@@ -10,7 +10,7 @@ SRCS= so_long.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
 
 OBJS= $(SRCS:.c=.o)
 
-SRCS_bonus= so_long_bonus.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
+SRCS_bonus= so_long_bonus.c so_long_utils.c parsing.c Mapping/mapping.c Mapping/map_errors.c \
 		Mapping/mapping_utils.c Display/display_bonus.c Display/display_tiles_bonus.c \
 		Init/ft_init_tiles.c Destroy/ft_close.c Destroy/ft_destroy_numbers.c Moves/moves_enemy_bonus.c Moves/move_events_bonus.c handlers.c \
 		Display/display_player.c Mapping/ft_write_errors.c Moves/moves_bonus.c \

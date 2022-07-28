@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 21:30:01 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/26 17:33:22 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 03:58:57 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,13 @@ void	render_enemy_continue(t_data *data)
 	t_img		*img;
 	t_tile		*enemy;
 
+	img = data->img;
 	time++;
-	if (time % 50 == 0)
+	if (time % (int)(ANIM * (300 * 400) / (img->height * img->width)) == 0)
 		x_tile++;
 	if (x_tile == 15)
 		x_tile = 0;
-	data->img->enemy->x_tile = x_tile;
-	img = data->img;
+	img->enemy->x_tile = x_tile;
 	enemy = img->enemy;
 	put_enemy_to_image(img, data->pos_enemy_x, data->pos_enemy_y,
 		create_new_data(enemy, img->new_enemy));
@@ -101,7 +101,8 @@ void	render_enemy(t_data *data)
 	static int	rand_value;
 	static int	time;
 
-	if (time == 0 || time % 200 == 0)
+	if (time == 0 || time % (int)
+		(ANIM * 4 * (300 * 400) / (data->img->height * data->img->width)) == 0)
 		rand_value = rand() % 5 + 1;
 	exec_move_enemy(data, rand_value);
 	render_enemy_continue(data);

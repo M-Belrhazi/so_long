@@ -6,7 +6,7 @@
 /*   By: mbelrhaz <mbelrhaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:24:36 by mbelrhaz          #+#    #+#             */
-/*   Updated: 2022/07/28 03:19:56 by mbelrhaz         ###   ########.fr       */
+/*   Updated: 2022/07/28 04:13:55 by mbelrhaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ void	move_right(t_data *data)
 
 	pix = data->pix;
 	win_game(data, data->pos_x + pix, data->pos_y);
-	no_mv = no_move(data, data->pos_x + pix, data->pos_y);
+	if (pix < 1)
+		no_mv = no_move(data, data->pos_x + 1, data->pos_y);
+	else
+		no_mv = no_move(data, data->pos_x + pix, data->pos_y);
 	if (no_mv)
 	{
 		pix = (data->pos_wall_j * 32) - ((int)data->pos_x + 32);
